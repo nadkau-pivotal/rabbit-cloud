@@ -1,0 +1,6 @@
+---
+applications:
+- name: fdc 
+  memory: 512M
+  host: fdc 
+  path: target/fdc-0.0.1-SNAPSHOT.jar
