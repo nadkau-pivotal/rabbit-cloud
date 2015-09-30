@@ -1,6 +1,8 @@
 ---
 applications:
-- name: fdc 
+- name: rabbit-cloud 
   memory: 512M
-  host: fdc 
-  path: target/fdc-0.0.1-SNAPSHOT.jar
+  host: rabbit-cloud 
+  path: target/RabbitCloud-0.0.1-SNAPSHOT.jar
+  services:
+   - my-rabbit 
