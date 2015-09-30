@@ -59,7 +59,9 @@ public class RabbitCloudApplication {
 		@Profile("cloud")
 		@Bean
 		public ConnectionFactory connectionFactory() {
+			
 			CloudFactory cloudFactory = new CloudFactory();
+			// Return a cloud suitable for the current environment
 			Cloud cloud = cloudFactory.getCloud();
 			AmqpServiceInfo serviceInfo = (AmqpServiceInfo) cloud
 					.getServiceInfo("my-rabbit");
