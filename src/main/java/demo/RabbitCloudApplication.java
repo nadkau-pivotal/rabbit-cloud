@@ -35,42 +35,7 @@ public class RabbitCloudApplication {
 	private RabbitTemplate rabbitTemplate;
 
 	
-	@Configuration
-	@Profile("dev")
-	public static class DevContext {
-		// dev beans
-		
-		@Bean
-		public ConnectionFactory connectionFactory() {
-			// Read the host, port, username and password from a config file
-			CachingConnectionFactory connectionFactory = new CachingConnectionFactory(
-					"localhost");
-			connectionFactory.setUsername("guest");
-			connectionFactory.setPassword("guest");
-			return connectionFactory;
-		}
-	}
-
-	@Configuration
-	@Profile("cloud")
-	public static class CloudContext {
-		// cloud beans
-
-		@Profile("cloud")
-		@Bean
-		public ConnectionFactory connectionFactory() {
-			CloudFactory cloudFactory = new CloudFactory();
-			Cloud cloud = cloudFactory.getCloud();
-			AmqpServiceInfo serviceInfo = (AmqpServiceInfo) cloud
-					.getServiceInfo("my-rabbit");
-			String serviceID = serviceInfo.getId();
-			return cloud.getServiceConnector(serviceID,
-					ConnectionFactory.class, null);
-		}
-	}
-	
 	// default beans
-
 	@Bean
 	public RabbitTemplate rabbitTemplate() {
 		RabbitTemplate template = new RabbitTemplate(connectionFactory);
