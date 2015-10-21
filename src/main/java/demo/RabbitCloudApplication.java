@@ -19,7 +19,6 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan
 @SpringBootApplication
 public class RabbitCloudApplication {
-	static ApplicationContext ctx = null;
 
 	public final static String queueName = "myQueue";
 	public final static String exchangeName = "myExchange";
@@ -58,6 +57,6 @@ public class RabbitCloudApplication {
 	}
 	
 	public static void main(String[] args) {
-		ctx = SpringApplication.run(RabbitCloudApplication.class, args);
+		SpringApplication.run(RabbitCloudApplication.class, args);
 	}
 }
