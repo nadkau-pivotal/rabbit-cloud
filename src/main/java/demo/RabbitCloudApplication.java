@@ -57,13 +57,6 @@ public class RabbitCloudApplication {
 		return BindingBuilder.bind(queue).to(exchange).with(queueName);
 	}
 	
-	public static ApplicationContext getApplicationContext() {
-		if (ctx == null) {
-			ctx = SpringApplication.run(RabbitCloudApplication.class);
-		}
-		return ctx;
-	}
-
 	public static void main(String[] args) {
 		ctx = SpringApplication.run(RabbitCloudApplication.class, args);
 	}
